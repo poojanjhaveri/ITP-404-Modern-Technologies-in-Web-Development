@@ -1,14 +1,14 @@
 // JavaScript Document
 
+// Our main class
 
 var ITP = {
          Widgets: {
            
-         Accordion:function(parameters)
+         Accordion:function(parameters)		 // For accordion
          {
-			
-         this.$name=$(parameters.el);
-         if(parameters.speed)
+         this.$name=$(parameters.el);		// Store the id
+         if(parameters.speed)				// Store the speed if speed is not passed in, then default speed=0
            {
              this.$speed=parameters.speed;
            }
@@ -16,7 +16,6 @@ var ITP = {
            {
             this.$speed=0;
            }
-		   console.log(this.$name,this.$speed);
             this.$label=this.$name.find('.label');
             this.$content=this.$name.find('.content');  
          }
@@ -24,51 +23,42 @@ var ITP = {
   
     };
   
- ITP.Widgets.Accordion.prototype.init = function () {
-	 		console.log(this.$content);
+ ITP.Widgets.Accordion.prototype.init = function () {		// For initializaing - as mentioned in the assignment
            this.$content.hide();
-           this.$content.first().show();   
+           this.$content.first().slideDown(this.$speed);   
            this.$label.first().addClass('active');
         };
   
- ITP.Widgets.Accordion.prototype.performaction = function () {
+ ITP.Widgets.Accordion.prototype.performaction = function () {		// For performing action as mentioned in assignment
     var self=this;
-	
-	this.$label.on('click', function() {
-    var displayProperty = $(this).next(this.$content).css('display');
+	this.$label.on('click', function() {							// Event Delegation
+    var displayProperty = $(this).next(this.$content).css('display');	// get the display property
     
-if (displayProperty == 'none') 
-{
-self.$label.removeClass('active');    // Remove active class from all other panels  
-$(this).addClass('active');      /* Add class to the current panel */
-
-
-self.$content.slideUp(); /*Slide up all remaining panel*/ 
-$(this).next(this.$content).slideDown(300); // slideDown
-    
-} 
+	if (displayProperty == 'none') 
+	{
+		self.$label.removeClass('active');    				// Remove active class from all other panels  
+		$(this).addClass('active');      					/* Add class to the current panel */
+		self.$content.slideUp(self.$speed); 				/*Slide up all remaining panel*/ 
+		$(this).next(this.$content).slideDown(self.$speed); // slideDown   
+	} 
    
-else {
-      
-$(this).next(this.$content).slideUp(300); // could use hide()
-$(this).removeClass('active');       
-      
+else {     
+	$(this).next(this.$content).slideUp(self.$speed); // could use hide()
+	$(this).removeClass('active');       
     } 
 });  
 };
 
 
  
-    var accordion1 = new ITP.Widgets.Accordion({
+var accordion1 = new ITP.Widgets.Accordion({
         el: '#accordion1',
         speed: 300
-    });
+});
+
 var accordion2 = new ITP.Widgets.Accordion({
         el: '#accordion2'
-    });
-
-    
- console.log("Start");
+});
 
 accordion1.init();
 accordion1.performaction();
