@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Itunes Search Application - ITP 404 Assignment</title>
+</head>
+
+<body>
+<div align="center">
+<h1>Itunes Search Application</h1>
+<form id="itunes-search" action="index.html">
+Artist Name : <input type="text" id="search-text">
+<button type="submit">Submit</button>
+</form>
+
+<script type="template" id="itunes-search-page-template">
+     <p>{{name}}</p>
+    <p>{{likes}}</p>
+     {{if description}}
+    <p>{{description}}</p>
+    {{/if}}
+    {{else}}
+    <p> No Description provided</p>
+    
+    
+   
+    <img src="{{cover.source}}">
+    </script>
+
+
+</div>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="itunes-search.js"></script>
+<link s>
+</body>
+</html>
