@@ -3,6 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Itunes Search Application - ITP 404 Assignment</title>
+
+<style>
+.row
+{
+	margin::1%;
+	background-color:rgb(204,204,204);
+	text-align:left;
+}
+.row p
+{
+	margin-left:3%;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -10,27 +25,41 @@
 <h1>Itunes Search Application</h1>
 <form id="itunes-search" action="index.html">
 Artist Name : <input type="text" id="search-text">
-<button type="submit">Submit</button>
+<button type="submit" >Submit</button>
 </form>
+<br>
+<br>
 
+<div id="content">
+        
+    </div>
+
+<div>	
+	<table>
 <script type="template" id="itunes-search-page-template">
-     <p>{{name}}</p>
-    <p>{{likes}}</p>
-     {{if description}}
-    <p>{{description}}</p>
-    {{/if}}
-    {{else}}
-    <p> No Description provided</p>
-    
-    
-   
-    <img src="{{cover.source}}">
+	
+	<tr class="row" >
+	<td style="vertical-align:top"><img src={{artworkUrl100}}></td>
+	<td style="vertical-align:top"><p><strong>Track: </strong>{{trackName}}<br>
+		<strong>Price: </strong>{{trackPrice}} $<br><strong>Genre: </strong>{{primaryGenreName}}<br>
+			
+		{{#if_custom this trackExplicitness}}
+		{{else}}
+		<img src="explicit.jpeg" style="width:100px; height:50px" >
+		{{/if_custom}} 
+
+		</p>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+		
     </script>
-
-
+</table>
 </div>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="handlebars.js"></script>
 <script src="itunes-search.js"></script>
+
 <link s>
 </body>
 </html>
