@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Todo List</title>
+<!-- Latest compiled and minified CSS -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" align="center" style="margin-top:5%">
+
+<!-- Form for value to be inserted in the list-->
+<form class="form-inline" role="form">	
+  <input type="text" style="width:25%;line-height:2em" required>
+  <select class="form-control" style="width:10%;">
+      <optgroup label="Priority">
+      <option>5</option>
+      <option>4</option>
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+  </select>
+  <button  type="button" class="btn-primary" id="addtodobutton">Add Todo</button>
+</form>
+
+</div>
+
+<div class="container" align="center" style="margin-top:5%;background-color:rgb(255,255,204);width:75%">
+  <ul id="todo-list">
+  </ul>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+<script src="maintodo.js"></script>
+</body>
+
+</html>
