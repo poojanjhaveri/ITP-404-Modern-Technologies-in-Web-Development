@@ -5,15 +5,36 @@
 <title>My Todo List</title>
 <!-- Latest compiled and minified CSS -->
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.priority
+{
+	width:10%;
+	color:rgb(255,0,0);
+}
+
+.item
+{width:70%;
+font-weight:bold;
+}
+.delete
+{
+	width:20%;
+}
+</style>
+
 </head>
+
 <body>
+
+
 
 <div class="container" align="center" style="margin-top:5%">
 
 <!-- Form for value to be inserted in the list-->
-<form class="form-inline" role="form">	
-  <input type="text" style="width:25%;line-height:2em" required>
-  <select class="form-control" style="width:10%;">
+<form class="form-inline" role="form" >	
+  <input type="text" style="width:25%;line-height:2em" id="todotext" required>
+  <select class="form-control" style="width:10%;" id="priority">
       <optgroup label="Priority">
       <option>5</option>
       <option>4</option>
@@ -27,8 +48,8 @@
 </div>
 
 <div class="container" align="center" style="margin-top:5%;background-color:rgb(255,255,204);width:75%">
-  <ul id="todo-list">
-  </ul>
+  <table id="todo-list">
+  </table>
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
