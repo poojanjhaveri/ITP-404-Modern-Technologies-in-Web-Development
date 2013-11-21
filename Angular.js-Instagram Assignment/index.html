@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="instagram-search-app">
+<head>
+<meta charset="UTF-8">
+<title>Search Instagram using Angular API</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div ng-controller="InstagramSearchController">
+<div align="center" style="margin-top:2%">
+<p>
+<form  ng-submit="search()">
+<input type="search" id="search-text" ng-model="searchinstagram"  placeholder="Enter text without #">
+<button class="btn btn-primary">Search Instagram</button>
+</form>
+</p>
+</div>
+
+<p ng-show="loading" style="background-color:yellow; padding:5px; text-align:center">Loading...</p>
+
+<div id="instagram-feed" align="center" ng-repeat ="image in images" style="float:left">
+<img  ng-src="{{image.images.low_resolution.url}}" style="margin-left:10px;margin-top:10px" >
+<p>@{{image.user.username}}</p>
+</div>
+</div>
+
+<div>
+</br>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
